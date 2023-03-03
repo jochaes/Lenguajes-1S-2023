@@ -97,32 +97,29 @@ func (l *listaProductos) aumentarInventarioDeMinimos(min listaProductos)  {
 
 type By func(p1, p2 *producto) bool
 
-func (by By) Sort(productos listaProductos) {
-	ps := &planetSorter{
-		planets: productos,
-		by:      by, // The Sort method's receiver is the function (closure) that defines the sort order.
+func (by By) Sort(pProductos listaProductos) {
+	ps := &ordenadorProductos{
+		productos: pProductos,
+		by:      by, 
 	}
 	sort.Sort(ps)
 }
 
-type planetSorter struct {
-	planets listaProductos
-	by      func(p1, p2 *producto) bool // Closure used in the Less method.
+type ordenadorProductos struct {
+	productos listaProductos
+	by      func(p1, p2 *producto) bool 
 }
 
-// Len is part of sort.Interface.
-func (s *planetSorter) Len() int {
-	return len(s.planets)
+func (s *ordenadorProductos) Len() int {
+	return len(s.productos)
 }
 
-// Swap is part of sort.Interface.
-func (s *planetSorter) Swap(i, j int) {
-	s.planets[i], s.planets[j] = s.planets[j], s.planets[i]
+func (s *ordenadorProductos) Swap(i, j int) {
+	s.productos[i], s.productos[j] = s.productos[j], s.productos[i]
 }
 
-// Less is part of sort.Interface. It is implemented by calling the "by" closure in the sorter.
-func (s *planetSorter) Less(i, j int) bool {
-	return s.by(&s.planets[i], &s.planets[j])
+func (s *ordenadorProductos) Less(i, j int) bool {
+	return s.by(&s.productos[i], &s.productos[j])
 }
 
 
