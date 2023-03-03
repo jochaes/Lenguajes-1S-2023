@@ -7,7 +7,8 @@ Profesor: Oscar Mario Viquez Acuna
 
 Estudiante: Josue Chaves Araya - 2015094068
 
-Ejercicio 1 de Lenguages Imperativos 
+
+Practica 1 Ejercicio 1 de Lenguages Imperativos 
 
 
 Instrucciones para ejecutar el programa: 
