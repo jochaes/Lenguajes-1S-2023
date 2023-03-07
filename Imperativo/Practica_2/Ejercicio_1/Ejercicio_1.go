@@ -1,5 +1,5 @@
 package main
-
+//TEC - Lenguajes de Programacion ->Ejercicio 1, practica 2, puntos a y b, Josué Chaves Araya - 2015094068
 import (
 	"fmt"
 	"sort"
@@ -10,6 +10,7 @@ type producto struct {
 	cantidad int
 	precio   int
 }
+
 type listaProductos []producto
 
 var lProductos listaProductos
@@ -83,33 +84,37 @@ func (l *listaProductos) listarProductosMinimos() listaProductos {
 
 }
 
+// ************  Practica 2  ************
 
 //Practica 2 - Ejercicio 1 a
 func (l *listaProductos) aumentarInventarioDeMinimos(min listaProductos)  {
 
 	for _,prodMin := range min{
-		cantidadAgregar := (existenciaMinima - prodMin.cantidad) + 1 
+		cantidadAgregar := (existenciaMinima - prodMin.cantidad) + 1  // A cada producto le suma la cantidad minima + 1
 		l.agregarProducto(prodMin.nombre, cantidadAgregar,prodMin.precio)
 	}
 }
 
 //Practica 2 - Ejercicio 1 c 
 
-type By func(p1, p2 *producto) bool
+type By func(p1, p2 *producto) bool //Tipo que especifica la busqueda
 
+//funcion que ordena los productos dependiendo del tipo
 func (by By) Sort(pProductos listaProductos) {
 	ps := &ordenadorProductos{
 		productos: pProductos,
-		by:      by, 
+		by: by, 
 	}
 	sort.Sort(ps)
 }
 
+//Struct para ordenar
 type ordenadorProductos struct {
-	productos listaProductos
-	by      func(p1, p2 *producto) bool 
+	productos listaProductos       //La lista de productos 
+	by func(p1, p2 *producto) bool //La función que dice cómo los va a ordenar
 }
 
+//Funciones utilitarias para hace un sort generico
 func (s *ordenadorProductos) Len() int {
 	return len(s.productos)
 }
@@ -122,37 +127,33 @@ func (s *ordenadorProductos) Less(i, j int) bool {
 	return s.by(&s.productos[i], &s.productos[j])
 }
 
-
+//Ordena por cualquier elemento del struct de productos 
 func (l *listaProductos) ordenarPor(key string ){
 
-	
-	
 	switch key {
 	case "nombre":
 			fmt.Println("Ordenando por Nombre")
-			nombre := func(p1, p2 *producto) bool {
+			nombre := func(p1, p2 *producto) bool { //Funcion que compara los nombres 
 				return p1.nombre < p2.nombre
 			}
-			By(nombre).Sort(*l)
+			By(nombre).Sort(*l) 										//Ordena la lista por la funcion de nombre
 
 	case "cantidad":
 		fmt.Println("Ordenando por Cantidad")
-		cantidad := func(p1, p2 *producto) bool{
+		cantidad := func(p1, p2 *producto) bool{ //Funcion que compara las cantidades  
 			return p1.cantidad < p2.cantidad
 		}
-		By(cantidad).Sort(*l)
+		By(cantidad).Sort(*l) 										//Ordena la lista por la funcion de cantidad
 	case "precio":
 		fmt.Println("Ordenando por Precio")
-		precio := func(p1, p2 *producto) bool{
+		precio := func(p1, p2 *producto) bool{ //Funcion que compara los precios de los productos  
 			return p1.precio < p2.precio
 		}
-		By(precio).Sort(*l)
+		By(precio).Sort(*l) 										//Ordena la lista por la funcion de precio
 
 	default:
 		fmt.Println(key, " no corresponde a ningún elemento de la estructura")
 	}
-
-	
 }
 
 func llenarDatos() {
@@ -166,7 +167,7 @@ func main() {
 	llenarDatos()
 
 	//Imprime la lista de productos Original
-	fmt.Println("Lista de Productos:")
+	fmt.Println("Lista de Productos Original:")
 	fmt.Println(lProductos)
 	fmt.Println()
 
@@ -176,6 +177,7 @@ func main() {
 	fmt.Println()
 
 	//Aumenta el inventario para que ya no hayan productos mínimos
+	//Ejercio 1 a
 	fmt.Println("Aumentando el inventario de productos minimos")
 	lProductos.aumentarInventarioDeMinimos(prodMin)
 	fmt.Println("Lista de Productos Actualizados:", "\n", lProductos)
@@ -183,6 +185,7 @@ func main() {
 
 
 	//Ordenar 
+	//Ejercio 1 b
 	fmt.Println("")
 	fmt.Println("")
 	fmt.Println("Lista Productos:")
