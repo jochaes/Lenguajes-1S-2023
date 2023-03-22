@@ -15,17 +15,12 @@ IDE: VS Code
 Plugin: Ionide-fsharp
 .Net: V7.0.202
 
-* El programa imprime la lista de frases que contienen la palabra que se utilizó para filtar 
+* El programa imprime una secuencia generada desde A hasta B 
 
 Instrucciones para ejecutar el programa: 
 
-- Agregar o eliminar frases de la lista en la linea 40
-- Cambiar la palabra para filtrar las frases en la linea 41
+- El programa utiliza argumentos de linea de comandos
+- Basta con ejecutar el programa con A y B en la misma línea de ejecución
+- Para generar una secuencia del 5 al 10, ejecuta el siguiente comando 
 
-  (filtrarPalabras "la" frases)
-                     |    └> Lista de frases 
-                     └> Palabra para filtrar
-
-
-- Ejecutar con:
-$ dotnet fsi Ejercicio_1.fsx
+$ dotnet fsi Ejercicio_2.fsx 5 10

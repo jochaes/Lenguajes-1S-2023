@@ -18,25 +18,22 @@ Construya una función que se llame general-sec A B.
 
 
 module Ejercicio_2 =
-  //Función recursiva que se encarga de buscar un match en la lista 
-  // ele: elemento a buscar en la lista
-  // list: Lista en dónde puede estar el elemeto
-  let rec checkaux ele list =
-    match list with    
-          | [] -> false
-          | head :: tail when ele = head -> true
-          | _ :: tail -> checkaux ele tail
 
-  //Filtrar textos por contenido de palabras
-  // pal: Palabra a filtrar
-  // lista: Lista de frases a filtrar que pueden contener pal
-  let filtrarPalabras (pal:string) (lista:string list) =
-      lista
-      |> List.filter (fun str -> checkaux pal (Array.toList (str.Split())) )
-
+  let generar_sec A B =
+    if A < B then [for i in A .. B -> i]
+    else []
+    
+  
 
 open Ejercicio_2
+open System
 
-let frases = ["otra cosa";"la rueda";"mejor la otra";"no se cuala";"la"] 
-printfn "%A" (filtrarPalabras "la" frases)
+let args:string[] = Environment.GetCommandLineArgs()
 
+let mutable A = 0
+let mutable B = 0
+
+//printfn "%A" args
+
+if Int32.TryParse(args[(args.Length - 2)], &A) &&  Int32.TryParse(args[(args.Length - 1)], &B) then printfn "Secuencia Generada: %A" (generar_sec A B)
+else printfn "Error tratando de parsear los numeros A y B \n debe agregar el rango de la siguiente manera:\n $ dotnet fsi Ejercicio_2.fsx A B"
