@@ -38,8 +38,8 @@ module Ejercicio_3 =
   //Funcion para recorrer todos los elementos de una lista de producto
   let rec recorrerListaProductos (lista: Producto list) = 
     match lista with
-    | [] -> printfn "No hay productos"
-    | h::t -> printfn "%s - %f" h.Nombre h.Precio; recorrerListaProductos t
+    | [] -> printfn "\n"
+    | h::t -> printfn " %s - %f" h.Nombre h.Precio; recorrerListaProductos t
 
   // Retorna true si el producto tiene impuesto
   let tieneImpuesto (producto: Producto) = 
@@ -65,6 +65,8 @@ open Ejercicio_3
 let total = precioTotal factura
 let impuestos = totalImpuestos factura
 
+printfn "Lista de Productos:"
+recorrerListaProductos factura
 printfn "Precio Total sin Impuesto: %f"  total
 printfn "Impuestos: %f"  impuestos
 printfn "Precio Total con Impuesto: %f"  (total + impuestos)
