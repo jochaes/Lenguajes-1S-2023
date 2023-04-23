@@ -15,7 +15,7 @@ aquellas que contengan una subcadena que el usuario indique en otro argumento.
 
 Ej: 
  
- sub_cadenas(“la”, [“la casa, “el perro”, “pintando la cerca”],Filtradas). 
+ sub_cadenas("la", ["la casa", "el perro", "pintando la cerca"], Filtradas).
  True 
  Filtradas = [“la casa, “pintando la cerca”]
 

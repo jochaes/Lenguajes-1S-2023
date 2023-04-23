@@ -21,10 +21,9 @@ Ej:
 */
 
 
-aplanar([],[]).                % Prolog una lista vacía es una lista vacía?
-aplanar(H|T, LISTA) :-         % Si es una lista entonces:
-  aplanar(H, HLISTA),          % Aplananos H en HLISTA
-  aplanar(T, TLISTA),          % Aplanamos T en TLista
-  append(HLISTA,TLISTA, LISTA).% Concatenamos las listas planas HLISTA y TLISTA en LISTA
-aplanar(ELEM, [ELEM]).         % Si es un elemento, devuelve una lista con ese elemento.
-
+aplanar([],[]).                    % Prolog una lista vacía es una lista vacía?
+aplanar([H|T], LISTA) :-           % Si es una lista entonces:
+  aplanar(H, HLISTA),              % Aplananos H en HLISTA
+  aplanar(T, TLISTA),              % Aplanamos T en TLista
+  append(HLISTA,TLISTA, LISTA),!.  % Concatenamos las listas planas HLISTA y TLISTA en LISTA
+aplanar(ELEM, [ELEM]).             % Si es un elemento, devuelve una lista con ese elemento.

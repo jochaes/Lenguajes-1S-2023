@@ -23,7 +23,7 @@ $swipl -f Ejercicio_1.pl
 
 - Dentro de la consola de swipl con el programa en memoria:
 
-?-sub_cadenas(“la”, [“la casa, “el perro”, “pintando la cerca”],Filtradas).
+?-sub_cadenas("la", ["la casa", "el perro", "pintando la cerca"], Filtradas).
                 └> Sub cadena     |                                 └>Lista de cadenas que contienen la subcadena
                                   |
                                   └> Lista de Cadenas
