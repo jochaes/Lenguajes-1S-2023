@@ -16,6 +16,8 @@ Explicación del Ejercicio:
 https://www.youtube.com/watch?v=OfeJMA93M8Y
 */
 
+
+
 % Laberinto
 conectado(i,2).
 conectado(2,3).

@@ -1,0 +1,35 @@
+EJEMPLO PARA CLASE 1 - PROGRAMACIÓN ORIENTADA A OBJETOS
+
++ --------------------------------------------------------------------- +
++	Se desea que implmente en el lenguaje Java o C# o ambos		+
++	el ejercicio que se describe a continuación			+
++									+
++	El objetivo es validar los conocimientos básicos del 		+
++	paradigma adquiridos en cursos anteriores			+
++ --------------------------------------------------------------------- +
+
+
+Ejemplo sobre cálculo de impuestos a pagar a partir de una factura de productos vendidos.
+La factura debe tener una serie de productos vendidos con su nombre, descripción y el monto de la venta del producto.
+
+El impuesto total a pagar en la factura, se calculará a partir del monto total de cada producto, si es menor a un
+rango establecido (que puede ser variante) no paga impuesto y si es mayor, si paga. El cálculo debe realizarse 
+mediante un método.
+
+El monto a pagar de impuesto será un porcentaje X definido por producto que cumpla el filtro. Se sabe que,
+en una economía local, no todos los productos pagan el mismo pocentaje de impuesto por lo que puede ser variante
+
+El cálculo total del monto de la factura debe realizarse mediante un método que realice la sumatoria de los montos de
+venta de los artpiculos en la factura sin el impuesto correspondiente.
+
+Se deberá instanciar los elementos necesarios para crear la factura y los artículos de cada factura, así como
+el cálculo y la impresión del monto total de cada factura sin el impuesto y el monto a pagar por concepto de impuestos
+y la sumatoria de ambos montos como monto total de la factura.
+
+Los datos serán quemados para más facilidad.
+
+
+
+UNA VEZ TERMINADO EL EJERCICIO, SE SOLICITA SE INVESTIGUE E IMPLEMENTE UNA SEGUNDA VERSIÓN
+PARA LOS MÉTODOS QUE CALCULAN LOS MONTOS DE LA FACTURA Y EL CALCULO DEL IMPUESTO UTILIZANDO
+FUNCIONES DE ORDEN SUPERIOR COMO map Y filter EN EL LENGUAJE ESCOGIDO PARA ESTA IMPLEMENTACIÓN
